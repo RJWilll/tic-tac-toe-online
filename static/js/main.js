@@ -59,6 +59,8 @@ class board
         this.getValues().then(() => {
             //can only set up buttons after values are gotten
             this.setUpButtons();
+            this.showTurn();
+            this.showSymbol();
 
             if(this.turn == "W")
             {
@@ -68,6 +70,7 @@ class board
             {
                 this.onTie();
             }
+
         });
     }
 
@@ -103,6 +106,26 @@ class board
             {
                 buttons[i].disabled = false;
             }
+        }
+    }
+
+    showTurn()
+    {
+        let render = document.getElementById("turn");
+        render.textContent = "Turn: " + this.turn;
+    }
+
+    showSymbol()
+    {
+        let render = document.getElementById("symbol");
+        let name = window.location.pathname.split('/')[2];
+        if(this.host == name)
+        {
+            render.textContent = "Your Symbol: X";
+        }
+        else
+        {
+            render.textContent = "Your Symbol: O";
         }
     }
 
