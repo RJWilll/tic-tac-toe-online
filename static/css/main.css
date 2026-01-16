@@ -1,0 +1,78 @@
+body
+{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}    
+    
+#board
+{
+    margin-left: 40%;
+    font-size: 400%;
+}
+
+#tile1
+{
+    background-color: white;
+    color: black;
+    opacity: 1;
+    
+}
+
+#tile2
+{
+    background-color: white;    
+    color: black;
+    opacity: 1;
+}
+
+#tile3
+{
+    background-color: white;    
+    opacity: 1;
+    color: black;
+}
+
+#tile4
+{
+    background-color: white;    
+    opacity: 1;
+    color: black;
+}
+
+
+#tile5
+{
+    background-color: white;        
+    opacity: 1;
+    color: black;
+}
+
+#tile6
+{
+    background-color: white;        
+    opacity: 1;
+    color: black;
+}
+
+#tile7
+{
+    background-color: white;        
+    opacity: 1;
+    color: black;
+}
+
+#tile8
+{
+    background-color: white;        
+    opacity: 1;
+    color: black;
+}
+
+#tile9
+{
+    background-color: white;        
+    opacity: 1;
+    color: black;
+}

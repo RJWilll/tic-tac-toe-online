@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Tic-Tac-Toe Championships</title> 
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <!--<meta http-equiv="refresh" content="2">--> <!--how the page refreshes-->
+
+</head>
+
+<body>
+    <header>
+        <p>Tic-Tac-Toe Championships</p>
+    </header>
+
+    <div id="data">
+        <p>
+            Name: {{profile.name}} <br>
+            Rank: {{profile.rank}} <br>
+            Wins: {{profile.wins}} <br>
+            Losses: {{profile.losses}} <br>
+        </p>
+    </div>
+
+
+
+    <div id="board">
+        <p>
+            <button id="tile1">&nbsp </button> | <button id="tile2">&nbsp</button> | <button id="tile3">&nbsp </button> <br>
+            -------- <br>
+            <button id="tile4"> &nbsp</button> | <button id="tile5">&nbsp</button> | <button id="tile6"> &nbsp</button> <br>
+            -------- <br>
+            <button id="tile7"> &nbsp</button> | <button id="tile8">&nbsp</button> | <button id="tile9">&nbsp </button> <br>
+            <br>
+        </p>
+    </div>
+
+    <button id="reset", disabled="true">
+        Reset
+    </button>
+
+    <p id="result">
+
+    </p>
+
+    <script src="/static/js/main.js"></script>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!--
+html page for /add/<name>, right now just take the name, sends POST request to add the name and then redirects to the profile page
+-->
+
+<head>
+    <title>make a game ya fool</title>
+    <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+
+<body>
+    <header>
+        <p>Tic-Tac-Toe Championships</p>
+    </header>
+
+    <br>
+    <br>
+    <p>Load Game From ID</p>
+    <form method="POST"> <!-- url should be /game/<name> -->
+        <p>
+            <label for="ID">Create New Game ID:</label>
+            <input type="text" id="ID" name="ID">
+            <button type="submit">Go</button>
+        </p>
+    </form>
+
+    <p>Ranked Matchmaking</p>
+    <button id="matchmaking">
+        <p>Go</p>
+    </button>
+    
+
+    <script src="/static/js/createGame.js"></script>
+
+</body>
+
