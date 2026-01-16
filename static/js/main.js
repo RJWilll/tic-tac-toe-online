@@ -46,6 +46,11 @@ class board
     {
         let fetchURL = "/game/i/" + window.location.pathname.split('/')[3];
         let response = await fetch(fetchURL);
+        if(response.redirected)
+        {
+            window.location.href = response.url;//parses url to output, catch if data has been deleted
+        }
+
         let data = await response.json();
         //get values from database
         this.id = data.boardStatus;
@@ -268,6 +273,19 @@ class board
             body: JSON.stringify(postData)
         })
     }
+
+    endGame()
+    {
+        fetch(window.location.pathname, {
+            method: 'DELETE'
+        })
+        .then(response => { //this is how you actually redirect why man
+            if(response.redirected)
+            {
+                window.location.href = response.url;//parses url to output  
+            }
+        })
+    }
 }
 
 document.getElementById("tile1").addEventListener("click", function() 
@@ -327,6 +345,11 @@ document.getElementById("tile9").addEventListener("click", function()
 document.getElementById("reset").addEventListener("click", function() 
 {
     thisBoard.reset();
+});
+
+document.getElementById("end").addEventListener("click", function() 
+{
+    thisBoard.endGame();
 });
 
 //ran code

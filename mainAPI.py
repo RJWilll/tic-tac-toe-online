@@ -83,7 +83,7 @@ def CreateGame(name):
         return render_template('createGame.html')
 
 
-@app.route("/game/<name>/<id>", methods=['GET','PUT'])
+@app.route("/game/<name>/<id>", methods=['GET','PUT', 'DELETE'])
 def playGame(name, id):
     curGame = Game.query.filter(Game.id == id).first()#note that this acts as a pointer like 
     curProfile = Profile.query.filter(Profile.name == name).first()
@@ -101,20 +101,28 @@ def playGame(name, id):
             curProfile.losses = curProfile.losses
         dataBase.session.commit()
         return render_template('main.html', profile=curProfile, game=curGame)
-    else:
+    elif(request.method == 'GET'):
         return render_template('main.html', profile=curProfile, game=curGame)#still need to have main.html accept game data
+    elif(request.method == 'DELETE'):
+        dataBase.session.delete(curGame)
+        dataBase.session.commit()
+        return redirect(url_for('createGame', name=name))
 
 @app.route("/game/i/<id>", methods=['GET'])
 def getGame(id):
     curGame = Game.query.filter(Game.id == id).first()
-    return jsonify(
-    {
-        "id": curGame.id,
-        "boardStatus":  curGame.boardStatus,
-        "numTurns": curGame.numTurns,
-        "turn": curGame.turn,
-        "host": curGame.host
-    })#really weird and odd syntax needed
+    if curGame is not None:
+        return jsonify(
+        {
+            "id": curGame.id,
+            "boardStatus":  curGame.boardStatus,
+            "numTurns": curGame.numTurns,
+            "turn": curGame.turn,
+            "host": curGame.host
+        })#really weird and odd syntax needed
+    else:
+        return redirect(url_for('defaultRun'))
+
 
 @app.route("/match/<name>", methods=['GET', 'PUT', 'POST'])
 def addToMatchmaking(name):
